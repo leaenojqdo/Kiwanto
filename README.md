@@ -39,7 +39,7 @@ These capabilities will be introduced gradually. Integrations may have different
 
 ## Development approach
 
-Kiwanto is initiated and directed by an independent creator. AI coding assistants support research, documentation, architecture, implementation, and testing. The creator remains responsible for product direction, requirements, decisions, testing, feedback, and review. AI-generated output is not assumed to be correct and should be checked like any other contribution.
+Kiwanto is initiated and directed by an independent creator who does not have formal programming education. AI coding assistants support research, documentation, architecture, implementation, and testing. The creator remains responsible for product direction, requirements, decisions, testing, feedback, and review. AI-generated output is not assumed to be correct and should be checked like any other contribution.
 
 The project welcomes experienced developers and other contributors who want to help shape and build it. See [Contributing](CONTRIBUTING.md) for how to participate.
 
