@@ -6,7 +6,7 @@ Kiwanto is at the planning and documentation stage. The project has not claimed 
 
 ## Reporting a vulnerability
 
-Please do not publish suspected vulnerabilities in a public issue or discussion. Use GitHub's **Report a vulnerability** option in the repository's Security tab if private vulnerability reporting is enabled. If that option is unavailable, contact the repository owner privately through an appropriate GitHub channel and ask how to share the report securely. Do not include exploit details in a public post while seeking a private channel.
+Please do not publish suspected vulnerabilities in a public issue or discussion. Use GitHub's **Report a vulnerability** option in the repository's Security tab if private vulnerability reporting is enabled. It has not been confirmed that this feature is currently enabled for Kiwanto; the project owner should configure it in the repository settings when the project is ready to receive vulnerability reports. If private reporting is not available, contact the project owner privately through an appropriate GitHub channel and ask how to share the report securely. Do not include exploit details in a public post while seeking a private channel.
 
 Please provide, as safely as possible:
 
@@ -15,7 +15,7 @@ Please provide, as safely as possible:
 - Reproduction steps or a proof of concept that avoids harming other users or systems.
 - Any suggested mitigation, if known.
 
-Do not access, alter, or disclose other people's data while investigating. Give maintainers a reasonable opportunity to understand and address a report before public disclosure. No fixed response or remediation timeframe is promised at this stage; maintainers should acknowledge reports and coordinate disclosure where possible.
+Do not access, alter, or disclose other people's data while investigating. Give the project owner a reasonable opportunity to understand and address a report before public disclosure. No fixed response or remediation timeframe is promised at this stage; the project owner should acknowledge reports and coordinate disclosure where possible.
 
 ## Intended security scope
 
