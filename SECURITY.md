@@ -2,7 +2,7 @@
 
 ## Current status
 
-Kiwanto is at the planning and documentation stage. The project has not claimed a security audit, security certification, or verified application safeguards. The principles below describe intended requirements, not guarantees about implemented software.
+The repository contains an initial React/Tauri desktop-interface prototype using sample game data and narrowly scoped Rust commands for the built-in theme preference. It is not a complete game library and does not implement game launching, integrations, or Big Picture / TV mode. The project has not claimed a security audit, security certification, or verified application safeguards. The principles below describe intended requirements, not guarantees about implemented software.
 
 ## Reporting a vulnerability
 

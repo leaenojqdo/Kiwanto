@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760">
+  <defs>
+    <linearGradient id="dusk" x2="0" y2="1">
+      <stop stop-color="#283d59"/>
+      <stop offset=".5" stop-color="#d88768"/>
+      <stop offset="1" stop-color="#f2bd79"/>
+    </linearGradient>
+    <radialGradient id="sunset">
+      <stop stop-color="#ffe3a2" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#ffe3a2" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <path fill="url(#dusk)" d="M0 0h1200v760H0z"/>
+  <circle cx="759" cy="326" r="250" fill="url(#sunset)"/>
+  <circle cx="759" cy="326" r="68" fill="#ffe1a0"/>
+  <path fill="#4a5260" d="m0 474 173-82 140 63 173-102 119 89 162-101 123 92 128-61 182 57v331H0z"/>
+  <path fill="#344455" d="M0 536h1200v224H0z"/>
+  <path fill="#68727b" d="M0 573c219-31 334 39 532 5s362-51 668-9v50c-262-29-461 14-667 33S222 635 0 673z" opacity=".55"/>
+  <path fill="#222f3c" d="m160 523 222-31 106 31v237H160z"/>
+  <path fill="#d79e72" d="m133 526 270-64 118 63z"/>
+  <path fill="#43505c" d="M217 557h46v63h-46zm82 0h46v63h-46zm-82 93h46v68h-46zm82 0h46v68h-46z"/>
+  <path fill="#e5c08b" d="M395 550h63v210h-63z"/>
+  <path fill="#233441" d="M738 510h23v228h-23z"/>
+  <path fill="#e8ca95" d="M704 490h91v20h-91zM747 452h6v42h-6z"/>
+  <path fill="none" stroke="#f7d8a1" stroke-opacity=".5" stroke-width="4" d="M0 703c218-21 392 30 589 2s403-29 611-5"/>
+</svg>

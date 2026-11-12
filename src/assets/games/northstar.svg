@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760">
+  <defs>
+    <linearGradient id="night" x2="0" y2="1">
+      <stop stop-color="#111b39"/>
+      <stop offset=".58" stop-color="#405b88"/>
+      <stop offset="1" stop-color="#9bd1d7"/>
+    </linearGradient>
+    <radialGradient id="planet">
+      <stop stop-color="#f0ddba"/>
+      <stop offset=".67" stop-color="#b99ebd"/>
+      <stop offset="1" stop-color="#7088a8"/>
+    </radialGradient>
+  </defs>
+  <path fill="url(#night)" d="M0 0h1200v760H0z"/>
+  <circle cx="885" cy="223" r="128" fill="url(#planet)"/>
+  <path d="M0 279c194-124 276-45 439-125s320-99 474-34 204 45 344 4" fill="none" stroke="#9fe7e0" stroke-opacity=".34" stroke-width="31"/>
+  <path fill="#738da2" d="m0 493 157-85 140 52 146-165 143 179 143-112 152 134 114-89 126 78 79-31v306H0z"/>
+  <path fill="#a5c1c6" d="m298 460 145-165 103 129-65-21-46 28-45-22-31 34zM684 496l145-134 119 105-75-18-43 32-51-23-40 31z"/>
+  <path fill="#344761" d="m0 580 178-71 167 60 167-86 152 79 174-81 173 81 110-51 79 35v214H0z"/>
+  <path fill="#202c43" d="M0 680h1200v80H0z"/>
+  <path fill="none" stroke="#f1ca8f" stroke-width="3" d="M0 677c235-19 357 25 581-1s371-54 619-27"/>
+  <g fill="#fff1d2"><circle cx="196" cy="130" r="2"/><circle cx="342" cy="204" r="2"/><circle cx="1042" cy="102" r="2"/><circle cx="702" cy="141" r="2"/></g>
+</svg>

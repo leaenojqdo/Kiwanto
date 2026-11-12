@@ -1,0 +1,245 @@
+import type { DesignTokens, ThemeDefinition, ThemeId } from "./model";
+
+const desktopComposition: ThemeDefinition["composition"] = {
+  preset: "desktop-three-zone",
+  regions: {
+    navigation: {
+      placement: "navigation-rail",
+      order: 0,
+      visible: true,
+      backgroundToken: "navigationBackground",
+      minimumWidth: 56,
+      maximumWidth: 112,
+    },
+    library: {
+      placement: "side-column",
+      order: 1,
+      visible: true,
+      backgroundToken: "libraryBackground",
+      minimumWidth: 240,
+      maximumWidth: 500,
+    },
+    presentation: {
+      placement: "main-canvas",
+      order: 2,
+      visible: true,
+      backgroundToken: "presentationBackground",
+    },
+  },
+  separator: {
+    visible: true,
+    styleToken: "separator",
+  },
+};
+
+const darkTokens: DesignTokens = {
+  colors: {
+    appBackground: "#101316",
+    navigationBackground: "#15191d",
+    libraryBackground: "#181c20",
+    libraryInputBackground: "#111518",
+    surface: "#20252a",
+    surfaceRaised: "#24292e",
+    surfaceHover: "#282e33",
+    mainBackground: "#161a1e",
+    presentationBackground: "#1a1d20",
+    textPrimary: "#e8ebee",
+    textSecondary: "#c1c6c7",
+    textMuted: "#9da5ab",
+    textQuiet: "#6f787f",
+    border: "rgb(255 255 255 / 7%)",
+    accent: "#99c774",
+    accentStrong: "#a7d47f",
+    accentText: "#182017",
+    focus: "#a7d47f",
+  },
+  typography: {
+    interfaceFamily: '"DM Sans", sans-serif',
+    displayFamily: '"Manrope", sans-serif',
+    baseSize: "12px",
+    smallSize: "10px",
+  },
+  spacing: {
+    panelInset: "18px",
+    contentGap: "16px",
+  },
+  borders: {
+    separator: "rgb(255 255 255 / 7%)",
+    radiusSmall: "6px",
+    radiusMedium: "9px",
+    radiusLarge: "14px",
+  },
+  shadows: {
+    panel: "0 5px 20px rgb(0 0 0 / 22%)",
+    floating: "0 14px 40px rgb(0 0 0 / 38%)",
+  },
+  opacity: {
+    panel: "0.96",
+    overlay: "0.72",
+  },
+  gradients: {
+    accent: "linear-gradient(100deg, rgb(153 199 116 / 12%), rgb(153 199 116 / 5%))",
+    presentationOverlay:
+      "linear-gradient(180deg, rgb(17 20 23 / 12%), rgb(18 21 24 / 25%) 38%, #1a1d20 94%)",
+  },
+  effects: {
+    blur: "7px",
+    transitionDuration: "150ms",
+  },
+  dimensions: {
+    navigationWidth: "72px",
+    libraryDefaultWidth: "330px",
+    libraryMinimumWidth: "240px",
+    libraryMaximumWidth: "500px",
+  },
+};
+
+const lightTokens: DesignTokens = {
+  colors: {
+    appBackground: "#e7ebe5",
+    navigationBackground: "#f0f2ed",
+    libraryBackground: "#f7f8f5",
+    libraryInputBackground: "#e9ece7",
+    surface: "#ffffff",
+    surfaceRaised: "#f2f4ef",
+    surfaceHover: "#e9ede6",
+    mainBackground: "#e1e6df",
+    presentationBackground: "#e8ece6",
+    textPrimary: "#252c28",
+    textSecondary: "#47524b",
+    textMuted: "#667269",
+    textQuiet: "#7b867d",
+    border: "rgb(35 48 39 / 13%)",
+    accent: "#6d9850",
+    accentStrong: "#557d3c",
+    accentText: "#ffffff",
+    focus: "#557d3c",
+  },
+  typography: darkTokens.typography,
+  spacing: darkTokens.spacing,
+  borders: {
+    separator: "rgb(35 48 39 / 13%)",
+    radiusSmall: "6px",
+    radiusMedium: "9px",
+    radiusLarge: "14px",
+  },
+  shadows: {
+    panel: "0 5px 20px rgb(31 43 34 / 9%)",
+    floating: "0 14px 40px rgb(31 43 34 / 18%)",
+  },
+  opacity: {
+    panel: "0.97",
+    overlay: "0.82",
+  },
+  gradients: {
+    accent: "linear-gradient(100deg, rgb(109 152 80 / 14%), rgb(109 152 80 / 5%))",
+    presentationOverlay:
+      "linear-gradient(180deg, rgb(243 246 240 / 10%), rgb(232 236 230 / 38%) 58%, #e8ece6 100%)",
+  },
+  effects: darkTokens.effects,
+  dimensions: darkTokens.dimensions,
+};
+
+export const builtInThemes: Record<ThemeId, ThemeDefinition> = {
+  "kiwanto-dark": {
+    formatVersion: 1,
+    id: "kiwanto-dark",
+    name: "Oscuro",
+    description: "La apariencia oscura actual de Kiwanto.",
+    appearance: "dark",
+    tokens: darkTokens,
+    composition: desktopComposition,
+    resources: {
+      logoId: "kiwanto-default",
+      iconSetId: "kiwanto-line",
+      backgrounds: {},
+    },
+  },
+  "kiwanto-light": {
+    formatVersion: 1,
+    id: "kiwanto-light",
+    name: "Claro",
+    description: "Una apariencia clara con el mismo diseño funcional.",
+    appearance: "light",
+    tokens: lightTokens,
+    composition: desktopComposition,
+    resources: {
+      logoId: "kiwanto-default",
+      iconSetId: "kiwanto-line",
+      backgrounds: {},
+    },
+  },
+};
+
+export const DEFAULT_USER_PREFERENCES = {
+  schemaVersion: 2,
+  themeId: "kiwanto-dark",
+  bigPicture: { interfaceScale: 100, coverOrientation: "portrait", coverSize: "medium", density: "comfortable" },
+} as const;
+
+export function themeCssProperties(themeId: ThemeId): Record<string, string> {
+  const { tokens, composition } = builtInThemes[themeId];
+  const libraryRegion = composition.regions.library;
+  return {
+    "--kw-color-app": tokens.colors.appBackground,
+    "--kw-color-navigation": tokens.colors.navigationBackground,
+    "--kw-color-surface": tokens.colors.surface,
+    "--kw-color-surface-raised": tokens.colors.surfaceRaised,
+    "--kw-color-hover": tokens.colors.surfaceHover,
+    "--kw-color-text": tokens.colors.textPrimary,
+    "--kw-color-text-muted": tokens.colors.textMuted,
+    "--kw-color-accent": tokens.colors.accent,
+    "--kw-color-accent-strong": tokens.colors.accentStrong,
+    "--kw-color-border": tokens.colors.border,
+    "--kw-font-interface": tokens.typography.interfaceFamily,
+    "--kw-font-display": tokens.typography.displayFamily,
+    "--kw-font-size-base": tokens.typography.baseSize,
+    "--kw-radius-small": tokens.borders.radiusSmall,
+    "--kw-radius-medium": tokens.borders.radiusMedium,
+    "--kw-radius-large": tokens.borders.radiusLarge,
+    "--kw-shadow-panel": tokens.shadows.panel,
+    "--kw-shadow-floating": tokens.shadows.floating,
+    "--kw-spacing-content": tokens.spacing.contentGap,
+    "--ui-app-background": tokens.colors.appBackground,
+    "--ui-navigation-background": tokens.colors.navigationBackground,
+    "--ui-library-background": tokens.colors.libraryBackground,
+    "--ui-library-input-background": tokens.colors.libraryInputBackground,
+    "--ui-surface": tokens.colors.surface,
+    "--ui-surface-raised": tokens.colors.surfaceRaised,
+    "--ui-surface-hover": tokens.colors.surfaceHover,
+    "--ui-main-background": tokens.colors.mainBackground,
+    "--ui-presentation-background": tokens.colors.presentationBackground,
+    "--ui-text-primary": tokens.colors.textPrimary,
+    "--ui-text-secondary": tokens.colors.textSecondary,
+    "--ui-text-muted": tokens.colors.textMuted,
+    "--ui-text-quiet": tokens.colors.textQuiet,
+    "--ui-border": tokens.colors.border,
+    "--ui-accent": tokens.colors.accent,
+    "--ui-accent-strong": tokens.colors.accentStrong,
+    "--ui-accent-text": tokens.colors.accentText,
+    "--ui-focus": tokens.colors.focus,
+    "--ui-font-interface": tokens.typography.interfaceFamily,
+    "--ui-font-display": tokens.typography.displayFamily,
+    "--ui-font-size-base": tokens.typography.baseSize,
+    "--ui-font-size-small": tokens.typography.smallSize,
+    "--ui-panel-inset": tokens.spacing.panelInset,
+    "--ui-content-gap": tokens.spacing.contentGap,
+    "--ui-separator": tokens.borders.separator,
+    "--ui-radius-small": tokens.borders.radiusSmall,
+    "--ui-radius-medium": tokens.borders.radiusMedium,
+    "--ui-radius-large": tokens.borders.radiusLarge,
+    "--ui-shadow-panel": tokens.shadows.panel,
+    "--ui-shadow-floating": tokens.shadows.floating,
+    "--ui-panel-opacity": tokens.opacity.panel,
+    "--ui-overlay-opacity": tokens.opacity.overlay,
+    "--ui-gradient-accent": tokens.gradients.accent,
+    "--ui-gradient-presentation": tokens.gradients.presentationOverlay,
+    "--ui-effect-blur": tokens.effects.blur,
+    "--ui-transition-duration": tokens.effects.transitionDuration,
+    "--ui-navigation-width": tokens.dimensions.navigationWidth,
+    "--ui-library-default-width": tokens.dimensions.libraryDefaultWidth,
+    "--ui-library-min-width": `${libraryRegion.minimumWidth ?? Number.parseInt(tokens.dimensions.libraryMinimumWidth, 10)}px`,
+    "--ui-library-max-width": `${libraryRegion.maximumWidth ?? Number.parseInt(tokens.dimensions.libraryMaximumWidth, 10)}px`,
+    "--ui-separator-visible": composition.separator.visible ? "1" : "0",
+  };
+}

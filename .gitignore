@@ -1,0 +1,43 @@
+/node_modules/
+/dist/
+/src-tauri/target/
+/src-tauri/gen/schemas/
+
+# Local environment and credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Local databases and their sidecar files
+*.db
+*.db-*
+*.sqlite
+*.sqlite-*
+*.sqlite3
+*.sqlite3-*
+
+# Local logs, temporary files, and caches
+*.log
+*.log.*
+*.tmp
+*.temp
+*.swp
+*~
+.DS_Store
+.cache/
+.vite/
+coverage/
+
+# Generated browser-test output
+playwright-report/
+test-results/
+firefox-profile/
+marionette/
+geckodriver.log
+marionette.log
+*.trace.zip
+*.har

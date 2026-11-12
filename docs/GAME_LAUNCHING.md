@@ -1,5 +1,11 @@
 SISTEMA DE LANZAMIENTO
 
+## Estado actual
+
+**Estado: PARCIAL.** Existe un perfil manual persistente asociado a cada juego con ruta de ejecutable, directorio de trabajo opcional y argumentos almacenados por separado. El editor de juego expone configuración del perfil y una acción explícita de lanzamiento. Rust valida los datos disponibles y crea el proceso con `std::process::Command`, pasando los argumentos como elementos separados; no interpola una orden de shell. La llamada devuelve el ID de proceso, pero Kiwanto todavía no ofrece seguimiento completo de procesos secundarios, detección del juego efectivo, sesiones ni tiempo de juego. No hay importación automática de ejecutables ni integraciones Steam, Heroic, Lutris, Bottles, Proton o emuladores verificadas.
+
+Código principal: `src/components/GameLaunchControl.tsx`, `src/components/GameEditorDialog.tsx`, `src/library/service.ts` y `src-tauri/src/library.rs`. Este estado describe el flujo presente y no afirma compatibilidad con todos los ejecutables o sistemas.
+
 ## 1. Objetivo
 Permitir ejecutar videojuegos desde la biblioteca mediante diferentes métodos.
 

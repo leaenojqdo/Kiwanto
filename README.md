@@ -6,7 +6,7 @@ Kiwanto is a planned desktop application designed to bring games from different 
 
 Inspired by applications such as Playnite, Kiwanto aims to provide a Linux-first experience focused on customization, privacy, modularity, and user control.
 
-> **Development status:** Kiwanto is currently in the documentation and planning stage. The application and its proposed features are not yet implemented or tested. The technology stack and architecture remain subject to validation through prototypes.
+> **Development status:** The repository contains a React/Tauri desktop prototype with a local SQLite-backed library for manually adding, editing, favoriting, archiving, restoring, and permanently removing entries. The six sample games remain development fixtures and are not inserted into a user's database. Automatic installation discovery, installation management, real game launching, external integrations, advanced filters, backups, and Big Picture / TV mode are not implemented. Source code and automated checks do not by themselves confirm runtime behavior on target systems.
 
 ## Project goals
 

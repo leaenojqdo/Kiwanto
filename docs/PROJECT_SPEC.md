@@ -10,7 +10,7 @@ Inspired by applications such as Playnite, Kiwanto aims to provide a highly cust
 
 The application is not intended to replace Steam, Heroic, Lutris, Bottles, or other existing game managers. Instead, it will provide a unified interface for organizing and launching games managed by different sources.
 
-**Development status:** Kiwanto is currently in the documentation and planning stage. The requirements described here are intended goals, not implemented or verified functionality.
+**Development status:** The repository contains a React/Tauri desktop prototype with a local SQLite-backed library for manually adding, editing, favoriting, archiving, restoring, and permanently removing entries, plus persistent manual collections and membership management in Desktop Mode. The six sample games remain development fixtures and are not inserted into a user's database. Installation discovery/management, game launching, external integrations, advanced filters, backups, and Big Picture / TV mode are not implemented. Collection artwork, custom ordering, intelligent collections, franchise management and editorial presentations are future capabilities. Automated checks and source presence do not by themselves confirm runtime behavior on target systems.
 
 ## 2. Product principles
 
@@ -110,6 +110,8 @@ Planned game information includes:
 - Screenshots.
 - Other visual assets.
 
+Artwork is game content with its own provenance, attribution and license when known. It is stored independently from theme resources and is not included in theme packages by default. A game's descriptive content may later support user-editable, ordered blocks such as text, images, GIFs, galleries, video or trailers. These blocks belong to the game record, not its theme; safe media validation, local/external handling and offline caching are required. Scripts, active content and automatic audio playback are excluded. This is future scope, not an implemented capability.
+
 ### User organization
 
 - Tags.
@@ -151,7 +153,7 @@ The application must not automatically delete the game or its associated user da
 
 ## 7. Library functionality
 
-Planned library features include:
+Planned basic library features include:
 
 - Search.
 - Filtering.
@@ -167,8 +169,8 @@ Planned library features include:
 - Manual game creation.
 - Manual importing.
 - Directory scanning.
-- Statistics.
-- Play session tracking.
+
+Advanced statistics and play session tracking are separate capabilities. Their implementation depends on first validating the launch workflow and reliable process-detection behavior for the supported launch methods; a launch attempt alone is not evidence that a game ran or a play session occurred. Until those dependencies are validated, advanced playtime, session history, and process-derived statistics remain planned work.
 
 The exact first-release feature set remains subject to prioritization and prototype validation.
 
@@ -261,6 +263,22 @@ The user should eventually be able to configure:
 Customization must not make essential controls inaccessible or compromise application usability.
 
 The initial customization system should prioritize declarative themes and validated configuration instead of arbitrary executable extensions.
+
+Detailed requirements for customization, declarative compositions, independent visual regions, themes, interface profiles, and effects are documented in [UI_AND_THEMES.md](UI_AND_THEMES.md).
+
+### Interface modes and navigation
+
+Kiwanto is planned to offer two presentation modes: **Desktop Mode**, primarily for mouse and keyboard, and **Big Picture / TV Mode**, designed for viewing at a distance and controller navigation, with keyboard and mouse support as well. A mode selects a presentation and interaction experience; it is not a separate library, data store, or game-launching implementation.
+
+Both modes must use the same game identities, installations, metadata, artwork, collections, favorites, statistics, search/filter rules, launch profiles, history, and application preferences. A mode may use its own screens, layout, navigation arrangement, and local focus/scroll position without duplicating those shared capabilities.
+
+Switching modes should preserve the selected game, search query and filters, active collection, and other shared context. Each mode may retain its own usable navigation and scroll position; focus must be restored to a valid control and must not silently change the selected game. The global navigation must offer the same principal destinations in both modes while keeping navigation, library browsing, and selected-game presentation distinct.
+
+Big Picture / TV Mode must be an independently composed interface, not a scaled-up desktop layout. It should use readable-at-distance typography and controls, responsive layouts for differing resolutions and aspect ratios, visible focus and selection, and complete empty, loading, error, confirmation, and notification states. Essential actions must be operable without hover or a mouse. These are design requirements, not implemented capabilities.
+
+The interaction design must give controller, keyboard, and mouse input equivalent access to navigation, selection, confirmation, cancel/back, menus, lists, and cards. Shared semantic actions should be translated to each input method, with clear focus recovery when an overlay or focused item disappears. Menus and dialogs must have a predictable close/back route and must not strand navigation. The Gamepad API in the Tauri WebView is a candidate for controller input; support across Linux WebKitGTK versions and devices remains a technical validation item.
+
+The proposed mode-switch shortcut is `Ctrl+Shift+B`, subject to conflict review and future configuration in Settings. A visible, reversible mode-switch action must also be available in each mode. A mode switch must not discard shared state, implicitly confirm a dialog, or cancel an operation.
 
 ## 11. Non-functional requirements
 
@@ -397,9 +415,7 @@ See [ARCHITECTURE.md](ARCHITECTURE.md) and [TECH_STACK_DECISION.md](TECH_STACK_D
 
 ## 15. Development approach and project ownership
 
-Kiwanto is initiated and directed by an independent creator without formal programming education.
-
-AI coding assistants support research, documentation, architecture, implementation, and testing.
+Kiwanto is an independently directed project. AI assistants support research, documentation, architecture, implementation, and testing under the direction of the project owner.
 
 The creator remains responsible for:
 

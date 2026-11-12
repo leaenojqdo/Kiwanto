@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 760">
+  <defs>
+    <linearGradient id="polar" x2="0" y2="1">
+      <stop stop-color="#121b2c"/>
+      <stop offset=".58" stop-color="#263d4c"/>
+      <stop offset="1" stop-color="#a8c3bc"/>
+    </linearGradient>
+    <linearGradient id="aurora">
+      <stop stop-color="#7ab9a4" stop-opacity="0"/>
+      <stop offset=".52" stop-color="#9bd1b2" stop-opacity=".7"/>
+      <stop offset="1" stop-color="#94d5c7" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <path fill="url(#polar)" d="M0 0h1200v760H0z"/>
+  <path d="M-50 296c215-145 319 89 520-46s359-183 759-43v164c-321-65-514 72-706 63S165 346-50 456Z" fill="url(#aurora)" opacity=".8"/>
+  <path fill="#344550" d="m0 489 155-132 107 97 120-162 156 165 118-94 133 136 153-130 123 116 135-89v364H0z"/>
+  <path fill="#d0d9ce" d="m260 454 122-162 96 103-45-24-49 32-27-15-55 67zM651 491l118-94 100 104-64-31-45 26-44-16-29 22z"/>
+  <path fill="#1d2b37" d="m0 586 168-91 141 62 186-101 129 88 177-55 173 75 98-57 128 59v194H0z"/>
+  <path fill="#101a26" d="M0 677h1200v83H0z"/>
+  <path fill="#17232e" d="m535 461 130-40 129 40v113H535z"/>
+  <path fill="#b9cbbf" d="m588 477 83-24 75 24v8H588z"/>
+  <g fill="#f3d9a8"><circle cx="622" cy="519" r="3"/><circle cx="690" cy="519" r="3"/><circle cx="622" cy="546" r="3"/><circle cx="690" cy="546" r="3"/></g>
+</svg>
